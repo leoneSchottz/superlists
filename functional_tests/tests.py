@@ -1,12 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-import unittest
+from django.test import LiveServerTestCase
 import time
 
 print("hi")
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -24,7 +24,7 @@ class NewVisitorTest(unittest.TestCase):
         
         #Edith heard about a new interesting app that sets "To do" lists
         #She checks its homepage
-        self.browser.get("http://localhost:8000")
+        self.browser.get(self.live_server_url)
 
         #In the title she reads "To do"
         self.assertIn("To-do", self.browser.title)
@@ -66,8 +66,7 @@ class NewVisitorTest(unittest.TestCase):
 
         #She access the url and her list remains there
         self.fail('Finish the test!')
-        self.browser.quit()
+        
 
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
+
 
