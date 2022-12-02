@@ -83,7 +83,7 @@ class NewVisitorTest(LiveServerTestCase):
     def test_multiple_user_can_start_at_different_urls(self):
         # Edith starts a new list
         self.browser.get(self.live_server_url)
-        inputbox = self.browser.find_element(By.ID, 'id_new_item')
+        inputbox = self.browser.find_element(By.ID,'id_new_item')
         inputbox.send_keys('Buy peacock feathers')
         inputbox.send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
@@ -97,6 +97,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.browser = webdriver.Firefox()
     
         #Francis access the home page and there is no clue of Edith's list
+        self.browser.get(self.live_server_url)
         page_text = self.browser.find_element(By.TAG_NAME, 'body').text
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertNotIn('make a fly', page_text)
