@@ -1,4 +1,11 @@
-<html>
+{% extends 'base.html' %}
+
+{%block header_text%} Start a new To-do list {%endblock%}
+
+{%block from_action%} /lists/new {%endblock%}
+
+{% comment %} <html>
+    
     <title>To-do</title>
     <body>
         <h1>Your To-do list</h1>
@@ -8,4 +15,4 @@
             {% csrf_token %}
         </form>
     </body>
-</html>
+</html> {% endcomment %}
