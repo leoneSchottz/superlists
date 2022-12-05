@@ -1,0 +1,10 @@
+#id_list_table {
+    margin-top: 2ex;
+}
+
+tr td{
+    border-style: solid;
+    border-color: black;
+    border-top-width: 1px;
+    min-width: 1%;
+}
